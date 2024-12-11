@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+<title>Rubrica Portfolio</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div style = "margin-left: auto; margin-right: auto">
+	<div>
+		<div class ="space_bottom">
+			<h1>Rubrica Contatti</h1>
+		</div>
+		<div>
+			<form action="/salva" method="post">
+				<label for="nome">Nome</label> 
+				<input type="text" id="nome" name="nome" required> 
+				<label for="cognome">Cognome</label> 
+				<input type="text" id="cognome" name="cognome" required> 
+				<label for="telefono">Telefono</label> 
+				<input type="tel" id="telefono"	name="telefono" required> 
+				<label for="email">E-mail</label>
+				<input type="email" id="email" name="email" required>
+	
+				<button type="submit">Salva</button>
+			</form>
+		</div>
+	</div>
+	<div>
+		<div>
+			<h1>Lista Contatti</h1>
+		</div>
+		<div>
+			<div th:each = "r: ${listRubrica}">
+				<div>
+					<span style = "font-weight: 600; color: red">Nome: </span>
+					<span th:text = "${r.nome}"></span> 
+				</div>
+				<div>
+					<span style = "font-weight: 600;">Cognome: </span>
+					<span th:text = "${r.cognome}"></span> 
+				</div>
+				<div>
+					<span style = "font-weight: 600;">Telefono: </span>
+					<span th:text = "${r.telefono}"></span> 
+				</div>
+				<div>
+					<span style = "font-weight: 600;">Email: </span>
+					<span th:text = "${r.email}"></span> 
+				</div>
+				<div>
+					<a style="color:green; text-decoration:none;" th:href="@{/cancella(id=${r.id})}"><span>cancella</span> </a>
+				</div>
+				<div style= "padding: 15px"></div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+	
+
+
+
+</body>
+</html>
