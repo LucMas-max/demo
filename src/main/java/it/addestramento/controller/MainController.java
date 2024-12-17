@@ -45,6 +45,13 @@ public class MainController {
 
 	}
 
+
+	@GetMapping("/registrazione")
+	public String registrazione(Model model) {
+   
+		return "registrazione";
+
+	}
 	@PostMapping("/params")
 	public String ottieniParametri(Model model, @RequestParam(value = "nome", required = false) String nome,
 			@RequestParam(value = "cognome", required = false) String cognome) {
@@ -55,6 +62,18 @@ public class MainController {
 		return "risultato";
 	}
 
+	@PostMapping("/salvaUtente")
+	public String salvaUtente(Model model, 
+			@RequestParam(value = "nome", required = false) String nome,
+			@RequestParam(value = "cognome", required = false) String cognome,
+			@RequestParam(value = "email", required = false) String email,
+			@RequestParam(value = "password", required = false) String password) {
+		log.info("parametro1: " + nome);
+		log.info("parametro2: " + cognome);
+		model.addAttribute("nome", nome);
+		model.addAttribute("cognome", cognome);
+		return "risultato";
+	}
 	@PostMapping("/salva")
 	public String salvaRubrica(Model model, @RequestParam(value = "nome", required = false) String nome,
 			@RequestParam(value = "cognome", required = false) String cognome,

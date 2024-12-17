@@ -27,11 +27,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private Logger log = LogManager.getLogger(SecurityConfig.class.getName());
 	
 	private static final String[] AUTH_WHITELIST = {
-		"/", "/assets/**", "/libs/**", "/vendor/**", "/params", "/rubrica", "/salva", "/cancella"
+		"/", "/assets/**", "/libs/**", "/vendor/**", "/params", "/salva", "/cancella", "/registrazione", "/salvaUtente"
 	};
 	
 	private static final String[] AUTH_USER = {
-			"/admin/**"
+			 "/rubrica", "/admin/**"
 		};
 	
 	@Autowired
